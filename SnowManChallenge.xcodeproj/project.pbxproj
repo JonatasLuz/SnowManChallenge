@@ -9,23 +9,23 @@
 /* Begin PBXBuildFile section */
 		B4B5FAAC25C0BBD300B35E7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B5FAAB25C0BBD300B35E7F /* AppDelegate.swift */; };
 		B4B5FAAE25C0BBD300B35E7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B5FAAD25C0BBD300B35E7F /* SceneDelegate.swift */; };
-		B4B5FAB025C0BBD300B35E7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B5FAAF25C0BBD300B35E7F /* ViewController.swift */; };
 		B4B5FAB325C0BBD300B35E7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B5FAB125C0BBD300B35E7F /* Main.storyboard */; };
 		B4B5FAB625C0BBD300B35E7F /* SnowManChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4B5FAB425C0BBD300B35E7F /* SnowManChallenge.xcdatamodeld */; };
 		B4B5FAB825C0BBD400B35E7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B5FAB725C0BBD400B35E7F /* Assets.xcassets */; };
 		B4B5FABB25C0BBD400B35E7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B5FAB925C0BBD400B35E7F /* LaunchScreen.storyboard */; };
+		B4B5FAC925C0D4A900B35E7F /* QuestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B5FAC825C0D4A900B35E7F /* QuestionsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B4B5FAA825C0BBD300B35E7F /* SnowManChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnowManChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B5FAAB25C0BBD300B35E7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4B5FAAD25C0BBD300B35E7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B4B5FAAF25C0BBD300B35E7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B4B5FAB225C0BBD300B35E7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4B5FAB525C0BBD300B35E7F /* SnowManChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SnowManChallenge.xcdatamodel; sourceTree = "<group>"; };
 		B4B5FAB725C0BBD400B35E7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4B5FABA25C0BBD400B35E7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4B5FABC25C0BBD400B35E7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4B5FAC825C0D4A900B35E7F /* QuestionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +58,9 @@
 		B4B5FAAA25C0BBD300B35E7F /* SnowManChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				B4B5FAC625C0D43E00B35E7F /* Controllers */,
 				B4B5FAAB25C0BBD300B35E7F /* AppDelegate.swift */,
 				B4B5FAAD25C0BBD300B35E7F /* SceneDelegate.swift */,
-				B4B5FAAF25C0BBD300B35E7F /* ViewController.swift */,
 				B4B5FAB125C0BBD300B35E7F /* Main.storyboard */,
 				B4B5FAB725C0BBD400B35E7F /* Assets.xcassets */,
 				B4B5FAB925C0BBD400B35E7F /* LaunchScreen.storyboard */,
@@ -68,6 +68,14 @@
 				B4B5FAB425C0BBD300B35E7F /* SnowManChallenge.xcdatamodeld */,
 			);
 			path = SnowManChallenge;
+			sourceTree = "<group>";
+		};
+		B4B5FAC625C0D43E00B35E7F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B4B5FAC825C0D4A900B35E7F /* QuestionsTableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,10 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4B5FAB025C0BBD300B35E7F /* ViewController.swift in Sources */,
 				B4B5FAAC25C0BBD300B35E7F /* AppDelegate.swift in Sources */,
 				B4B5FAAE25C0BBD300B35E7F /* SceneDelegate.swift in Sources */,
 				B4B5FAB625C0BBD300B35E7F /* SnowManChallenge.xcdatamodeld in Sources */,
+				B4B5FAC925C0D4A900B35E7F /* QuestionsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
