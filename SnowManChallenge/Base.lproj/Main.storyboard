@@ -3,39 +3,11 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Perguntas Frequentes-->
-        <scene sceneID="npg-ur-izU">
-            <objects>
-                <tableViewController id="Mei-Hh-jwt" customClass="QuestionsTableViewController" customModule="SnowManChallenge" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dPM-J8-Okp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="ueL-1r-5Y4">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ueL-1r-5Y4" id="uv2-7D-h0j">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Mei-Hh-jwt" id="abT-3g-mEX"/>
-                            <outlet property="delegate" destination="Mei-Hh-jwt" id="whH-yI-deY"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Perguntas Frequentes" id="3Se-oU-WsC"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lcv-sv-wd9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-33" y="134"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="chz-BA-pub">
             <objects>
@@ -45,12 +17,71 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Mei-Hh-jwt" kind="relationship" relationship="rootViewController" id="IvS-pg-nHD"/>
+                        <segue destination="ZlA-iF-PVU" kind="relationship" relationship="rootViewController" id="EC5-Pj-HbJ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9y-A6-LGG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-924" y="134"/>
+        </scene>
+        <!--Perguntas Frequentes-->
+        <scene sceneID="pQo-DC-AjN">
+            <objects>
+                <viewController id="ZlA-iF-PVU" customClass="QuestionsTableViewController" customModule="SnowManChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XlQ-T4-faa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2uy-Rd-Xb8">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x5A-Tb-DlL">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="714"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="Jjx-fc-MrT">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jjx-fc-MrT" id="Z9B-PB-Pgg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0i-UV-8bj">
+                                        <rect key="frame" x="0.0" y="724" width="414" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="iqH-xL-LSi"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="x5A-Tb-DlL" firstAttribute="leading" secondItem="2uy-Rd-Xb8" secondAttribute="leading" id="3ac-Rr-pHk"/>
+                                    <constraint firstAttribute="trailing" secondItem="b0i-UV-8bj" secondAttribute="trailing" id="EDT-6u-IRF"/>
+                                    <constraint firstItem="b0i-UV-8bj" firstAttribute="leading" secondItem="2uy-Rd-Xb8" secondAttribute="leading" id="Qxr-xr-gZk"/>
+                                    <constraint firstAttribute="trailing" secondItem="x5A-Tb-DlL" secondAttribute="trailing" id="wIt-UG-7ZS"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aNf-mk-qGb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2uy-Rd-Xb8" firstAttribute="top" secondItem="aNf-mk-qGb" secondAttribute="top" id="PfQ-f6-tnc"/>
+                            <constraint firstItem="2uy-Rd-Xb8" firstAttribute="leading" secondItem="aNf-mk-qGb" secondAttribute="leading" id="Wiy-Gx-B6j"/>
+                            <constraint firstItem="aNf-mk-qGb" firstAttribute="bottom" secondItem="2uy-Rd-Xb8" secondAttribute="bottom" id="cbp-yY-Kjv"/>
+                            <constraint firstItem="aNf-mk-qGb" firstAttribute="trailing" secondItem="2uy-Rd-Xb8" secondAttribute="trailing" id="sN8-V9-7JS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Perguntas Frequentes" id="Qfm-co-NGH"/>
+                    <connections>
+                        <outlet property="questionsTableView" destination="x5A-Tb-DlL" id="oMe-LD-eLJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lek-PN-Jhg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-98" y="166"/>
         </scene>
     </scenes>
     <resources>
