@@ -32,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2uy-Rd-Xb8">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="2uy-Rd-Xb8">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x5A-Tb-DlL">
@@ -50,10 +50,21 @@
                                         </prototypes>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0i-UV-8bj">
-                                        <rect key="frame" x="0.0" y="724" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="714" width="414" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbG-bb-VdI">
+                                                <rect key="frame" x="15" y="0.0" width="384" height="45"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="iqH-xL-LSi"/>
+                                            <constraint firstItem="cbG-bb-VdI" firstAttribute="leading" secondItem="b0i-UV-8bj" secondAttribute="leading" constant="15" id="0nN-pT-Ver"/>
+                                            <constraint firstAttribute="height" constant="60" id="MG6-i3-iE9"/>
+                                            <constraint firstItem="cbG-bb-VdI" firstAttribute="top" secondItem="b0i-UV-8bj" secondAttribute="top" id="TaY-zp-Ycu"/>
+                                            <constraint firstAttribute="bottom" secondItem="cbG-bb-VdI" secondAttribute="bottom" constant="15" id="pBk-sn-hpS"/>
+                                            <constraint firstAttribute="trailing" secondItem="cbG-bb-VdI" secondAttribute="trailing" constant="15" id="vIj-o3-Vog"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -87,6 +98,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
