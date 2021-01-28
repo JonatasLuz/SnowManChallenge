@@ -14,10 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        preLoadDatafromJson()
         return true
     }
-
+    
+    
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -74,6 +76,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+    
+    func preLoadDatafromJson(){
+        let path = Bundle.main.path(forResource: "Questions", ofType: "json")!
+        let url = URL.init(fileURLWithPath: path)
+        do {
+            let data = try Data(contentsOf: url)
+            let decodedData = try JSONDecoder().decode([String:[Question]].self, from: data)
+            guard  let questions: [Question] = decodedData["questions"] else {
+                return
+            }
+            for question in questions {
+                debugPrint(question)
+            }
+        } catch {
+            return
         }
     }
 
