@@ -14,11 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        preLoadDatafromJson()
+        if isCoreDataEmpty() {
+            preLoadDatafromJson()
+        }
         return true
     }
-    
-    
     
     // MARK: UISceneSession Lifecycle
 
@@ -79,19 +79,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func preLoadDatafromJson(){
-        let path = Bundle.main.path(forResource: "Questions", ofType: "json")!
+    private func isCoreDataEmpty() -> Bool {
+        let context = persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<Question> = Question.fetchRequest()
+        do {
+            let questions = try  context.fetch(fetchRequest)
+            if questions.isEmpty {
+                return true
+            } else {
+                return false
+            }
+        } catch {
+            return true
+        }
+    }
+    
+    private func preLoadDatafromJson(){
+        guard let path = Bundle.main.path(forResource: "Questions", ofType: "json") else {
+            return
+        }
         let url = URL.init(fileURLWithPath: path)
+        let context = persistentContainer.viewContext
         do {
             let data = try Data(contentsOf: url)
-            let questions = try JSONDecoder().decode([Question].self, from: data)
-            for question in questions {
-                debugPrint(question)
+            let decodedData = try JSONDecoder().decode([QuestionModel].self, from: data)
+            for decodedQuestion in decodedData {
+                guard let entity = NSEntityDescription.entity(forEntityName: "Question", in: context) else {
+                    return
+                }
+                let question = NSManagedObject(entity: entity, insertInto: context)
+                question.setValue(decodedQuestion.question, forKeyPath: "question")
+                question.setValue(decodedQuestion.answer, forKeyPath: "answer")
+                question.setValue(decodedQuestion.colorName, forKey: "colorName")
             }
+            do {
+            try context.save()
+             } catch let error as NSError {
+               print("Could not save. \(error), \(error.userInfo)")
+             }
         } catch {
             return
         }
     }
-
 }
 

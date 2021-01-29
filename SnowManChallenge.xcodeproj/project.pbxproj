@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B42F6DC225C46BF0004AE7D2 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42F6DC125C46BF0004AE7D2 /* QuestionModel.swift */; };
 		B4B5FAAC25C0BBD300B35E7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B5FAAB25C0BBD300B35E7F /* AppDelegate.swift */; };
 		B4B5FAAE25C0BBD300B35E7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B5FAAD25C0BBD300B35E7F /* SceneDelegate.swift */; };
 		B4B5FAB325C0BBD300B35E7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B5FAB125C0BBD300B35E7F /* Main.storyboard */; };
@@ -16,10 +17,10 @@
 		B4B5FAC925C0D4A900B35E7F /* QuestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B5FAC825C0D4A900B35E7F /* QuestionsTableViewController.swift */; };
 		B4C710B125C342DF006345C4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C710B025C342DF006345C4 /* UIColorExtension.swift */; };
 		B4C710B525C35F0E006345C4 /* Questions.json in Resources */ = {isa = PBXBuildFile; fileRef = B4C710B425C35F0E006345C4 /* Questions.json */; };
-		B4C710C025C36E18006345C4 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C710BF25C36E18006345C4 /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B42F6DC125C46BF0004AE7D2 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		B4B5FAA825C0BBD300B35E7F /* SnowManChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnowManChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B5FAAB25C0BBD300B35E7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4B5FAAD25C0BBD300B35E7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 		B4B5FAC825C0D4A900B35E7F /* QuestionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsTableViewController.swift; sourceTree = "<group>"; };
 		B4C710B025C342DF006345C4 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		B4C710B425C35F0E006345C4 /* Questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Questions.json; path = SnowManChallenge/Resources/Questions.json; sourceTree = SOURCE_ROOT; };
-		B4C710BF25C36E18006345C4 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 		B4C710BE25C36DFD006345C4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B4C710BF25C36E18006345C4 /* Question.swift */,
+				B42F6DC125C46BF0004AE7D2 /* QuestionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,7 +177,7 @@
 				B4B5FAAC25C0BBD300B35E7F /* AppDelegate.swift in Sources */,
 				B4B5FAAE25C0BBD300B35E7F /* SceneDelegate.swift in Sources */,
 				B4C710B125C342DF006345C4 /* UIColorExtension.swift in Sources */,
-				B4C710C025C36E18006345C4 /* Question.swift in Sources */,
+				B42F6DC225C46BF0004AE7D2 /* QuestionModel.swift in Sources */,
 				B4B5FAB625C0BBD300B35E7F /* SnowManChallenge.xcdatamodeld in Sources */,
 				B4B5FAC925C0D4A900B35E7F /* QuestionsTableViewController.swift in Sources */,
 			);
