@@ -84,10 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let url = URL.init(fileURLWithPath: path)
         do {
             let data = try Data(contentsOf: url)
-            let decodedData = try JSONDecoder().decode([String:[Question]].self, from: data)
-            guard  let questions: [Question] = decodedData["questions"] else {
-                return
-            }
+            let questions = try JSONDecoder().decode([Question].self, from: data)
             for question in questions {
                 debugPrint(question)
             }
