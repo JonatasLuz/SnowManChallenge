@@ -23,7 +23,7 @@ class QuestionTableViewCell: UITableViewCell {
         iconImageView.image = UIImage(systemName: "chevron.down")
         self.addSubview(iconImageView)
         
-        answerLabel = UILabel(frame: CGRect(x: 15, y:  self.frame.height + 10, width: self.frame.width * 0.85, height: 100))
+        answerLabel = UILabel(frame: CGRect(x: 15, y:  self.frame.height + 10, width: self.frame.width * 0.9, height: 100))
         answerLabel.numberOfLines = 0
         
         answerLabel.isHidden = false
