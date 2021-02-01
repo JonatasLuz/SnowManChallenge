@@ -104,7 +104,7 @@
         <!--Adicionar Pergunta-->
         <scene sceneID="FAi-oT-jW2">
             <objects>
-                <viewController id="JB9-hU-Esg" sceneMemberID="viewController">
+                <viewController id="JB9-hU-Esg" customClass="AddQuestionViewController" customModule="SnowManChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="48u-G6-1ay">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,11 +114,43 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XcA-EH-tlg">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="162.5"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ucu-sV-Ge1">
+                                                <rect key="frame" x="20" y="30" width="334" height="122.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ucu-sV-Ge1" secondAttribute="trailing" constant="20" id="G4o-2D-8N0"/>
+                                            <constraint firstItem="ucu-sV-Ge1" firstAttribute="top" secondItem="XcA-EH-tlg" secondAttribute="top" constant="30" id="RbF-aT-zN0"/>
+                                            <constraint firstItem="ucu-sV-Ge1" firstAttribute="leading" secondItem="XcA-EH-tlg" secondAttribute="leading" constant="20" id="RzB-m6-UzK"/>
+                                            <constraint firstAttribute="bottom" secondItem="ucu-sV-Ge1" secondAttribute="bottom" constant="10" id="XXk-HD-pl4"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bj9-zr-goP">
                                         <rect key="frame" x="0.0" y="172.5" width="374" height="325"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MNy-3Q-eHn">
+                                                <rect key="frame" x="20" y="30" width="334" height="285"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="MNy-3Q-eHn" secondAttribute="bottom" constant="10" id="Au2-gw-44W"/>
+                                            <constraint firstItem="MNy-3Q-eHn" firstAttribute="top" secondItem="Bj9-zr-goP" secondAttribute="top" constant="30" id="BLB-Cy-qlr"/>
+                                            <constraint firstAttribute="trailing" secondItem="MNy-3Q-eHn" secondAttribute="trailing" constant="20" id="WC8-S2-ieV"/>
+                                            <constraint firstItem="MNy-3Q-eHn" firstAttribute="leading" secondItem="Bj9-zr-goP" secondAttribute="leading" constant="20" id="nn7-RK-R8f"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aP-dW-LVp">
                                         <rect key="frame" x="0.0" y="507.5" width="374" height="162.5"/>
@@ -126,7 +158,19 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWk-bw-241">
                                         <rect key="frame" x="0.0" y="680" width="374" height="54"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foI-W3-KIN">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="39"/>
+                                                <state key="normal" title="Adicionar"/>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <constraints>
+                                            <constraint firstItem="foI-W3-KIN" firstAttribute="leading" secondItem="zWk-bw-241" secondAttribute="leading" id="9Jg-Y7-ozV"/>
+                                            <constraint firstAttribute="trailing" secondItem="foI-W3-KIN" secondAttribute="trailing" id="MjD-62-EvV"/>
+                                            <constraint firstAttribute="bottom" secondItem="foI-W3-KIN" secondAttribute="bottom" constant="15" id="toS-EL-NeI"/>
+                                            <constraint firstItem="foI-W3-KIN" firstAttribute="top" secondItem="zWk-bw-241" secondAttribute="top" id="x5E-rS-p7e"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -154,6 +198,9 @@
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
