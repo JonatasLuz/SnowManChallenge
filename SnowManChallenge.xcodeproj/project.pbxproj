@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B4049CD225C58FDB000ED481 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4049CD025C58FDB000ED481 /* QuestionTableViewCell.swift */; };
 		B4049CD325C58FDB000ED481 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4049CD125C58FDB000ED481 /* QuestionTableViewCell.xib */; };
+		B42C068B25C8A0B900CD0573 /* AddQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42C068A25C8A0B900CD0573 /* AddQuestionView.swift */; };
 		B42F6DC225C46BF0004AE7D2 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42F6DC125C46BF0004AE7D2 /* QuestionModel.swift */; };
 		B443935325C83DFA0018E332 /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443935225C83DFA0018E332 /* AddQuestionViewController.swift */; };
 		B4B5FAAC25C0BBD300B35E7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B5FAAB25C0BBD300B35E7F /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		B4049CD025C58FDB000ED481 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		B4049CD125C58FDB000ED481 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
+		B42C068A25C8A0B900CD0573 /* AddQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionView.swift; sourceTree = "<group>"; };
 		B42F6DC125C46BF0004AE7D2 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		B443935225C83DFA0018E332 /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
 		B4B5FAA825C0BBD300B35E7F /* SnowManChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnowManChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +58,7 @@
 			children = (
 				B4049CD025C58FDB000ED481 /* QuestionTableViewCell.swift */,
 				B4049CD125C58FDB000ED481 /* QuestionTableViewCell.xib */,
+				B42C068A25C8A0B900CD0573 /* AddQuestionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			files = (
 				B4B5FAAC25C0BBD300B35E7F /* AppDelegate.swift in Sources */,
 				B4B5FAAE25C0BBD300B35E7F /* SceneDelegate.swift in Sources */,
+				B42C068B25C8A0B900CD0573 /* AddQuestionView.swift in Sources */,
 				B443935325C83DFA0018E332 /* AddQuestionViewController.swift in Sources */,
 				B4C710B125C342DF006345C4 /* UIColorExtension.swift in Sources */,
 				B42F6DC225C46BF0004AE7D2 /* QuestionModel.swift in Sources */,

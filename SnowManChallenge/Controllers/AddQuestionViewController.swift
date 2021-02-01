@@ -9,6 +9,8 @@ import UIKit
 
 class AddQuestionViewController: UIViewController {
 
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,11 +22,29 @@ class AddQuestionViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+           else {
+             // if keyboard size is not available for some reason, dont do anything
+             return
+           }
+
+           let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height , right: 0.0)
+           scrollView.contentInset = contentInsets
+           scrollView.scrollIndicatorInsets = contentInsets
+         
+         // move the root view up by the distance of keyboard height
+    //     self.view.frame.origin.y = 0 - keyboardSize.height
         
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        
+  //      self.view.frame.origin.y = 0
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+                
+            
+            // reset back the content inset to zero after keyboard is gone
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
     }
     
     // MARK: Private Functions
