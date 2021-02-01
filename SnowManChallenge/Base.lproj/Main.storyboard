@@ -36,7 +36,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x5A-Tb-DlL">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="714"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="704"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="Jjx-fc-MrT" customClass="QuestionTableViewCell" customModule="SnowManChallenge" customModuleProvider="target">
@@ -50,10 +50,10 @@
                                         </prototypes>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0i-UV-8bj">
-                                        <rect key="frame" x="0.0" y="714" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="704" width="414" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbG-bb-VdI">
-                                                <rect key="frame" x="15" y="0.0" width="384" height="45"/>
+                                                <rect key="frame" x="15" y="0.0" width="384" height="55"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <state key="normal" title="Adicionar Pergunta" image="plus" catalog="system">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,7 +66,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="cbG-bb-VdI" firstAttribute="leading" secondItem="b0i-UV-8bj" secondAttribute="leading" constant="15" id="0nN-pT-Ver"/>
-                                            <constraint firstAttribute="height" constant="60" id="MG6-i3-iE9"/>
+                                            <constraint firstAttribute="height" constant="70" id="MG6-i3-iE9"/>
                                             <constraint firstItem="cbG-bb-VdI" firstAttribute="top" secondItem="b0i-UV-8bj" secondAttribute="top" id="TaY-zp-Ycu"/>
                                             <constraint firstAttribute="bottom" secondItem="cbG-bb-VdI" secondAttribute="bottom" constant="15" id="pBk-sn-hpS"/>
                                             <constraint firstAttribute="trailing" secondItem="cbG-bb-VdI" secondAttribute="trailing" constant="15" id="vIj-o3-Vog"/>
@@ -114,7 +114,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Dt5-KR-bto">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="550"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="520"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdR-tb-6bU" userLabel="QuestionView">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
@@ -292,10 +292,21 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpc-vI-BJ6" userLabel="AddQuestionButtonView">
-                                                <rect key="frame" x="0.0" y="450" width="414" height="100"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <rect key="frame" x="0.0" y="450" width="414" height="70"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drw-yJ-rON">
+                                                        <rect key="frame" x="20" y="0.0" width="374" height="55"/>
+                                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                        <state key="normal" title="Adicionar"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="qPY-Qf-cDd"/>
+                                                    <constraint firstItem="Drw-yJ-rON" firstAttribute="top" secondItem="zpc-vI-BJ6" secondAttribute="top" id="3vk-F0-y3W"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Drw-yJ-rON" secondAttribute="trailing" constant="20" id="Ei0-9I-Ert"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Drw-yJ-rON" secondAttribute="bottom" constant="15" id="Hqf-A7-bHy"/>
+                                                    <constraint firstItem="Drw-yJ-rON" firstAttribute="leading" secondItem="zpc-vI-BJ6" secondAttribute="leading" constant="20" id="Oae-Uz-A67"/>
+                                                    <constraint firstAttribute="height" constant="70" id="qPY-Qf-cDd"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
