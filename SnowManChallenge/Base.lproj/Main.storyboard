@@ -109,45 +109,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Sv0-z6-d54">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u3S-VL-dYF">
+                                <rect key="frame" x="20" y="108" width="374" height="734"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkx-vI-vGx" userLabel="QuestionView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="186"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XcA-EH-tlg">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="162.5"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Md3-Kx-TQZ" userLabel="AnswerView">
-                                        <rect key="frame" x="0.0" y="196" width="414" height="186"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bj9-zr-goP">
+                                        <rect key="frame" x="0.0" y="172.5" width="374" height="325"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k59-4V-PCb" userLabel="ColorView">
-                                        <rect key="frame" x="0.0" y="392" width="414" height="186"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aP-dW-LVp">
+                                        <rect key="frame" x="0.0" y="507.5" width="374" height="162.5"/>
+                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWT-qe-HQC" userLabel="AddButtonView">
-                                        <rect key="frame" x="0.0" y="588" width="414" height="186"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWk-bw-241">
+                                        <rect key="frame" x="0.0" y="680" width="374" height="54"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="dkx-vI-vGx" secondAttribute="trailing" id="2ad-5O-8bd"/>
-                                    <constraint firstItem="bWT-qe-HQC" firstAttribute="leading" secondItem="Sv0-z6-d54" secondAttribute="leading" id="60M-km-qw6"/>
-                                    <constraint firstAttribute="trailing" secondItem="Md3-Kx-TQZ" secondAttribute="trailing" id="8NB-tb-mzf"/>
-                                    <constraint firstItem="k59-4V-PCb" firstAttribute="leading" secondItem="Sv0-z6-d54" secondAttribute="leading" id="Nnc-gQ-aJQ"/>
-                                    <constraint firstItem="Md3-Kx-TQZ" firstAttribute="leading" secondItem="Sv0-z6-d54" secondAttribute="leading" id="ONP-kR-Dc5"/>
-                                    <constraint firstAttribute="trailing" secondItem="k59-4V-PCb" secondAttribute="trailing" id="PMf-KX-So5"/>
-                                    <constraint firstAttribute="trailing" secondItem="bWT-qe-HQC" secondAttribute="trailing" id="a9e-RK-0gq"/>
-                                    <constraint firstItem="dkx-vI-vGx" firstAttribute="leading" secondItem="Sv0-z6-d54" secondAttribute="leading" id="aTJ-we-9r9"/>
+                                    <constraint firstItem="XcA-EH-tlg" firstAttribute="height" secondItem="Bj9-zr-goP" secondAttribute="height" multiplier="0.5" id="ray-ai-BOM"/>
+                                    <constraint firstItem="4aP-dW-LVp" firstAttribute="height" secondItem="zWk-bw-241" secondAttribute="height" multiplier="3" id="slH-FL-22e"/>
+                                    <constraint firstItem="Bj9-zr-goP" firstAttribute="height" secondItem="4aP-dW-LVp" secondAttribute="height" multiplier="2" id="ype-1u-I8g"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Ju-hq-u5q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Sv0-z6-d54" firstAttribute="top" secondItem="3Ju-hq-u5q" secondAttribute="top" id="bwF-MO-zbI"/>
-                            <constraint firstItem="Sv0-z6-d54" firstAttribute="leading" secondItem="3Ju-hq-u5q" secondAttribute="leading" id="uVG-Ty-iw9"/>
-                            <constraint firstItem="3Ju-hq-u5q" firstAttribute="trailing" secondItem="Sv0-z6-d54" secondAttribute="trailing" id="xdX-sK-kuG"/>
-                            <constraint firstItem="3Ju-hq-u5q" firstAttribute="bottom" secondItem="Sv0-z6-d54" secondAttribute="bottom" id="ylJ-nj-pVp"/>
+                            <constraint firstItem="3Ju-hq-u5q" firstAttribute="trailing" secondItem="u3S-VL-dYF" secondAttribute="trailing" constant="20" id="F5R-U6-LSf"/>
+                            <constraint firstItem="u3S-VL-dYF" firstAttribute="top" secondItem="3Ju-hq-u5q" secondAttribute="top" constant="20" id="Tzn-2A-yat"/>
+                            <constraint firstItem="u3S-VL-dYF" firstAttribute="leading" secondItem="3Ju-hq-u5q" secondAttribute="leading" constant="20" id="axx-gB-27U"/>
+                            <constraint firstItem="3Ju-hq-u5q" firstAttribute="bottom" secondItem="u3S-VL-dYF" secondAttribute="bottom" constant="20" id="im4-8t-MoE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Adicionar Pergunta" id="uQJ-ka-RN7"/>
@@ -161,6 +156,15 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
