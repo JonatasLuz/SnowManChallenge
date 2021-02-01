@@ -19,7 +19,6 @@ class QuestionTableViewCell: UITableViewCell {
         self.addSubview(questionLabel)
         iconImageView = UIImageView(frame: CGRect( x:  self.frame.width * 0.9, y: 20, width: 30, height: 10))
         iconImageView.tintColor = .gray
-       // iconImageView.trailingAnchor.anchorWithOffset(to: question)
         iconImageView.image = UIImage(systemName: "chevron.down")
         self.addSubview(iconImageView)
         
