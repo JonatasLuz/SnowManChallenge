@@ -15,7 +15,11 @@ class AddQuestionView: UIView {
     @IBOutlet weak var pinkPickerView: UIView!
     @IBOutlet weak var greenPickerView: UIView!
     @IBOutlet weak var bluePickerView: UIView!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var greenButton: UIButton!
+    @IBOutlet weak var pinkButton: UIButton!
+    @IBOutlet weak var yellowButton: UIButton!
+    @IBOutlet weak var blueButton: UIButton!
+    
     override func awakeFromNib() {
         configureViewBorderAppearance(view: addQuestionView)
         configureViewBorderAppearance(view: addAnwerView)
@@ -44,12 +48,15 @@ class AddQuestionView: UIView {
         view.layer.borderColor = UIColor(red:222/255, green:225/255, blue:227/255, alpha: 1).cgColor
         view.layer.cornerRadius = 10
     }
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    func setCheckmark(button: UIButton) {
+        let checkMarkImage = UIImage(systemName: "checkmark")
+        button.tintColor = .white
+        button.setImage(checkMarkImage, for: .normal)
+        button.contentMode = .center
     }
-    */
-
+    
+    func removeCheckMark(button: UIButton) {
+        button.setImage(nil, for: .normal)
+    }
 }

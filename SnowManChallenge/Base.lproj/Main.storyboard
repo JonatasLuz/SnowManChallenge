@@ -323,10 +323,13 @@
                         <connections>
                             <outlet property="addAnwerView" destination="0jD-kX-4Yl" id="sKB-6R-Ibd"/>
                             <outlet property="addQuestionView" destination="92d-fm-zfn" id="UuE-Jo-IOS"/>
+                            <outlet property="blueButton" destination="ISv-xC-pxK" id="hyM-vm-BOP"/>
                             <outlet property="bluePickerView" destination="nbm-nT-9UY" id="uKg-mS-nzZ"/>
-                            <outlet property="button" destination="7TK-XI-NX9" id="uSd-UH-7Oo"/>
+                            <outlet property="greenButton" destination="7TK-XI-NX9" id="pdp-Ow-i8X"/>
                             <outlet property="greenPickerView" destination="DUr-Nu-vIC" id="z3b-w6-Nsr"/>
+                            <outlet property="pinkButton" destination="RhZ-hz-FUA" id="meb-Xu-mME"/>
                             <outlet property="pinkPickerView" destination="y7S-JL-w91" id="Bzt-yO-I3h"/>
+                            <outlet property="yellowButton" destination="pCH-Mc-HQF" id="Gdg-1y-FAn"/>
                             <outlet property="yellowPickerVIew" destination="ayb-rU-EpR" id="PA5-0z-40Y"/>
                         </connections>
                     </view>
