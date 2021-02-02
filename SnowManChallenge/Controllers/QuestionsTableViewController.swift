@@ -22,6 +22,16 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         questionsTableView.delegate = self
         questionsTableView.dataSource = self
         super.viewDidLoad()
+        
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -32,15 +42,10 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         } catch {
             return
         }
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        questionsTableView.reloadData()
     }
-
+    
+    
     // MARK: - Table view data source
 
      func numberOfSections(in tableView: UITableView) -> Int {
