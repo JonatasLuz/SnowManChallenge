@@ -214,6 +214,9 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7TK-XI-NX9">
                                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                        <connections>
+                                                                            <action selector="greenButtonAction:" destination="G4p-Kz-HEw" eventType="touchUpInside" id="LBL-dr-dyr"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -231,6 +234,9 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RhZ-hz-FUA">
                                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                        <connections>
+                                                                            <action selector="pinkButtonAction:" destination="G4p-Kz-HEw" eventType="touchUpInside" id="B6f-aR-bqt"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
@@ -248,6 +254,9 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCH-Mc-HQF">
                                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                        <connections>
+                                                                            <action selector="yellowButtonAction:" destination="G4p-Kz-HEw" eventType="touchUpInside" id="RgJ-db-P1a"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
@@ -265,6 +274,9 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISv-xC-pxK">
                                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                        <connections>
+                                                                            <action selector="bluebuttonAction:" destination="G4p-Kz-HEw" eventType="touchUpInside" id="JY3-vQ-PTy"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
@@ -297,6 +309,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drw-yJ-rON">
                                                         <rect key="frame" x="20" y="0.0" width="374" height="55"/>
                                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                         <state key="normal" title="Adicionar"/>
                                                     </button>
                                                 </subviews>
@@ -333,6 +346,7 @@
                         </constraints>
                         <connections>
                             <outlet property="addAnwerView" destination="0jD-kX-4Yl" id="sKB-6R-Ibd"/>
+                            <outlet property="addButton" destination="Drw-yJ-rON" id="bGl-Jx-dMH"/>
                             <outlet property="addQuestionView" destination="92d-fm-zfn" id="UuE-Jo-IOS"/>
                             <outlet property="blueButton" destination="ISv-xC-pxK" id="hyM-vm-BOP"/>
                             <outlet property="bluePickerView" destination="nbm-nT-9UY" id="uKg-mS-nzZ"/>
@@ -346,6 +360,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Adicionar Pergunta" id="lej-pg-w3G"/>
                     <connections>
+                        <outlet property="addQuestionView" destination="1nM-fz-a08" id="7Dj-rp-iIw"/>
                         <outlet property="scrollView" destination="VdM-lp-1ye" id="hl5-Zn-XIx"/>
                     </connections>
                 </viewController>

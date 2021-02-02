@@ -19,6 +19,7 @@ class AddQuestionView: UIView {
     @IBOutlet weak var pinkButton: UIButton!
     @IBOutlet weak var yellowButton: UIButton!
     @IBOutlet weak var blueButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     
     override func awakeFromNib() {
         configureViewBorderAppearance(view: addQuestionView)
@@ -27,6 +28,9 @@ class AddQuestionView: UIView {
         configureColorViewAppearance(view: greenPickerView, color: .lightGreen())
         configureColorViewAppearance(view: pinkPickerView, color: .lightPink())
         configureColorViewAppearance(view: bluePickerView, color: .darkBlue())
+        addButton.backgroundColor = .goldenYellow()
+        addButton.tintColor = .darkBlue()
+        addButton.layer.cornerRadius = 10
     }
     
     private func configureColorViewAppearance(view: UIView, color: UIColor){

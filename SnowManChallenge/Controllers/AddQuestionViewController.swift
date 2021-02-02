@@ -10,7 +10,9 @@ import UIKit
 class AddQuestionViewController: UIViewController {
 
     
+    @IBOutlet var addQuestionView: AddQuestionView!
     @IBOutlet weak var scrollView: UIScrollView!
+    private var lastTappedButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,6 +49,39 @@ class AddQuestionViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
+    @IBAction func greenButtonAction(_ sender: UIButton) {
+        if lastTappedButton != sender{
+            changeCheckmark(button: sender)
+        }
+    }
+    
+    @IBAction func pinkButtonAction(_ sender: UIButton) {
+        if lastTappedButton != sender{
+            changeCheckmark(button: sender)
+        }
+    }
+    @IBAction func bluebuttonAction(_ sender: UIButton) {
+        if lastTappedButton != sender{
+            changeCheckmark(button: sender)
+        }
+    }
+    
+    @IBAction func yellowButtonAction(_ sender: UIButton) {
+        if lastTappedButton != sender{
+            changeCheckmark(button: sender)
+        }
+    }
+    
+    func changeCheckmark(button: UIButton){
+        addQuestionView.setCheckmark(button: button)
+        if lastTappedButton != nil {
+            lastTappedButton.setImage(nil, for: .normal)
+        }
+        lastTappedButton = button
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
