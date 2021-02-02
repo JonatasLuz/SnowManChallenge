@@ -6,17 +6,32 @@
 //
 
 import UIKit
+import CoreData
 
 class AddQuestionViewController: UIViewController {
 
     
     @IBOutlet var addQuestionView: AddQuestionView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var questionTextField: UITextField!
+    @IBOutlet weak var answerTextView: UITextView!
     private var lastTappedButton: UIButton!
+    private var newQuestion: NSManagedObject!
+    private var pickedColor: String!
+    private var context: NSManagedObjectContext!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         subcribeKeyboardNotification()
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        context = appDelegate.persistentContainer.viewContext
+        guard let entity = NSEntityDescription.entity(forEntityName: "Question", in: context) else {
+            return
+        }
+        newQuestion = NSManagedObject(entity: entity, insertInto: context)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -39,7 +54,7 @@ class AddQuestionViewController: UIViewController {
     
     // MARK: Private Functions
     
-    private func subcribeKeyboardNotification(){
+    private func subcribeKeyboardNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -50,29 +65,47 @@ class AddQuestionViewController: UIViewController {
     }
 
     @IBAction func greenButtonAction(_ sender: UIButton) {
-        if lastTappedButton != sender{
+        if lastTappedButton != sender {
+            pickedColor = "lightGreen"
             changeCheckmark(button: sender)
         }
     }
     
     @IBAction func pinkButtonAction(_ sender: UIButton) {
-        if lastTappedButton != sender{
+        if lastTappedButton != sender {
+            pickedColor = "lightPink"
             changeCheckmark(button: sender)
         }
     }
     @IBAction func bluebuttonAction(_ sender: UIButton) {
-        if lastTappedButton != sender{
+        if lastTappedButton != sender {
+            pickedColor = "dakrBlue"
             changeCheckmark(button: sender)
         }
     }
     
     @IBAction func yellowButtonAction(_ sender: UIButton) {
-        if lastTappedButton != sender{
+        if lastTappedButton != sender {
+            pickedColor = "goldenYellow"
             changeCheckmark(button: sender)
         }
+        
+        
+    }
+    @IBAction func addQuestionAction(_ sender: UIButton) {
+        newQuestion.setValue(questionTextField.text, forKeyPath: "question")
+        newQuestion.setValue(answerTextView.text, forKeyPath: "answer")
+        newQuestion.setValue(pickedColor, forKey: "colorName")
+        
+        do {
+            try context.save()
+        } catch {
+            print("Could not save. \(error))")
+        }
+        self.navigationController?.popViewController(animated: true)
     }
     
-    func changeCheckmark(button: UIButton){
+    func changeCheckmark(button: UIButton) {
         addQuestionView.setCheckmark(button: button)
         if lastTappedButton != nil {
             lastTappedButton.setImage(nil, for: .normal)

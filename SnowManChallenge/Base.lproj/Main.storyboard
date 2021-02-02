@@ -311,6 +311,9 @@
                                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                         <state key="normal" title="Adicionar"/>
+                                                        <connections>
+                                                            <action selector="addQuestionAction:" destination="G4p-Kz-HEw" eventType="touchUpInside" id="u0j-Q7-g99"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -361,6 +364,8 @@
                     <navigationItem key="navigationItem" title="Adicionar Pergunta" id="lej-pg-w3G"/>
                     <connections>
                         <outlet property="addQuestionView" destination="1nM-fz-a08" id="7Dj-rp-iIw"/>
+                        <outlet property="answerTextView" destination="54h-Zg-L2H" id="FIh-em-aEB"/>
+                        <outlet property="questionTextField" destination="X9d-S9-UXH" id="Nes-Hc-3aX"/>
                         <outlet property="scrollView" destination="VdM-lp-1ye" id="hl5-Zn-XIx"/>
                     </connections>
                 </viewController>

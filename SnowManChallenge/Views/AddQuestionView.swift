@@ -21,6 +21,8 @@ class AddQuestionView: UIView {
     @IBOutlet weak var blueButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     
+    private var newQuestion: Question!
+    
     override func awakeFromNib() {
         configureViewBorderAppearance(view: addQuestionView)
         configureViewBorderAppearance(view: addAnwerView)
@@ -63,4 +65,5 @@ class AddQuestionView: UIView {
     func removeCheckMark(button: UIButton) {
         button.setImage(nil, for: .normal)
     }
+    
 }
