@@ -22,4 +22,20 @@ extension UIColor {
     static func lightGreen() -> UIColor {
         return UIColor(red: 77/255, green: 200/255, blue: 168/255, alpha: 1)
     }
+    
+    static func resolveColorName(colorName: String) -> UIColor {
+        switch colorName {
+        case "darkBlue":
+            return .darkBlue()
+        case "goldenYellow":
+            return .goldenYellow()
+        case "lightGreen":
+            return .lightGreen()
+        case "lightPink":
+            return .lightPink()
+        default:
+            return .darkBlue()
+        }
+        
+    }
 }

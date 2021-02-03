@@ -15,7 +15,6 @@ class QuestionTableViewCell: UITableViewCell {
         super.awakeFromNib()
         questionLabel.adjustsFontSizeToFitWidth = true
         answerLabel.adjustsFontSizeToFitWidth = true
-        containerView.layer.borderColor = UIColor.blue.cgColor
         containerView.layer.borderWidth = 2
         containerView.layer.cornerRadius = 10
         selectionStyle = .none

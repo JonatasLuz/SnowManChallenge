@@ -31,7 +31,6 @@ class AddQuestionView: UIView {
         configureColorViewAppearance(view: pinkPickerView, color: .lightPink())
         configureColorViewAppearance(view: bluePickerView, color: .darkBlue())
         addButton.backgroundColor = .goldenYellow()
-        addButton.tintColor = .darkBlue()
         addButton.layer.cornerRadius = 10
     }
     

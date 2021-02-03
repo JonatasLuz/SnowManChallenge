@@ -66,6 +66,11 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! QuestionTableViewCell
         cell.questionLabel.text = questions[indexPath.row].question
         cell.answerLabel.text = questions[indexPath.row].answer
+        guard let colorName =  questions[indexPath.row].colorName else {
+            return cell
+        }
+        let cellColor =  UIColor.resolveColorName(colorName: colorName)
+        cell.containerView.layer.borderColor = cellColor.cgColor
         return cell
     }
     
