@@ -33,7 +33,6 @@ class AddQuestionView: UIView {
         addButton.backgroundColor = .goldenYellow()
         addButton.tintColor = .darkBlue()
         addButton.layer.cornerRadius = 10
-        
     }
     
     private func configureColorViewAppearance(view: UIView, color: UIColor){

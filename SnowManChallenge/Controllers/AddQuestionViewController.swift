@@ -102,7 +102,13 @@ class AddQuestionViewController: UIViewController {
         } catch {
             print("Could not save. \(error))")
         }
-        self.navigationController?.popViewController(animated: true)
+        let transition = CATransition()
+        transition.duration = 1
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.moveIn
+        transition.subtype = CATransitionSubtype.fromTop
+        self.navigationController?.view.layer.add(transition, forKey: nil)
+        self.navigationController?.popViewController(animated: false)
     }
     
     func changeCheckmark(button: UIButton) {

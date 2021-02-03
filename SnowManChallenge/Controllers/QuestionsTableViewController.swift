@@ -26,10 +26,7 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         super.viewDidLoad()
         addQuestionButton.backgroundColor = .goldenYellow()
         addQuestionButton.tintColor = .darkBlue()
-        addQuestionButton.layer.cornerRadius = 10
-        
         questionsTableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "reuseIdentifier")
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
