@@ -8,27 +8,21 @@
 import UIKit
 
 class QuestionTableViewCell: UITableViewCell {
-    var questionLabel: UILabel!
-    var iconImageView: UIImageView!
-    var answerLabel: UILabel!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var answerLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        questionLabel = UILabel(frame: CGRect(x: 15, y: 0, width: self.frame.width * 0.85, height: self.frame.height))
-        questionLabel.numberOfLines = 0
-        questionLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
-        self.addSubview(questionLabel)
-        iconImageView = UIImageView(frame: CGRect( x:  self.frame.width * 0.9, y: 20, width: 30, height: 10))
-        iconImageView.tintColor = .gray
-        iconImageView.image = UIImage(systemName: "chevron.down")
-        self.addSubview(iconImageView)
-        answerLabel = UILabel(frame: CGRect(x: 15, y:  self.frame.height + 10, width: self.frame.width * 0.9, height: 100))
-        answerLabel.numberOfLines = 0
-        answerLabel.isHidden = false
-        self.addSubview(answerLabel)
+        questionLabel.adjustsFontSizeToFitWidth = true
+        answerLabel.adjustsFontSizeToFitWidth = true
+        containerView.layer.borderColor = UIColor.blue.cgColor
+        containerView.layer.borderWidth = 2
+        containerView.layer.cornerRadius = 10
+        selectionStyle = .none
+        answerLabel.textColor = UIColor.systemGray
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
 }

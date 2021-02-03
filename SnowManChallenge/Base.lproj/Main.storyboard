@@ -35,41 +35,30 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="2uy-Rd-Xb8">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x5A-Tb-DlL">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x5A-Tb-DlL">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="704"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="Jjx-fc-MrT" customClass="QuestionTableViewCell" customModule="SnowManChallenge" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jjx-fc-MrT" id="Z9B-PB-Pgg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0i-UV-8bj">
                                         <rect key="frame" x="0.0" y="704" width="414" height="70"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbG-bb-VdI">
-                                                <rect key="frame" x="15" y="0.0" width="384" height="55"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fU2-nP-Jad">
+                                                <rect key="frame" x="20" y="0.0" width="374" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                <state key="normal" title="Adicionar Pergunta" image="plus" catalog="system">
-                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                <state key="normal" title="Adicionar Pergunta"/>
                                                 <connections>
-                                                    <segue destination="G4p-Kz-HEw" kind="show" id="3TK-ao-yJq"/>
+                                                    <segue destination="G4p-Kz-HEw" kind="show" id="Nob-wO-SfF"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="cbG-bb-VdI" firstAttribute="leading" secondItem="b0i-UV-8bj" secondAttribute="leading" constant="15" id="0nN-pT-Ver"/>
+                                            <constraint firstAttribute="bottom" secondItem="fU2-nP-Jad" secondAttribute="bottom" constant="20" id="8XH-hf-cEf"/>
+                                            <constraint firstAttribute="trailing" secondItem="fU2-nP-Jad" secondAttribute="trailing" constant="20" id="FLW-tg-3B0"/>
                                             <constraint firstAttribute="height" constant="70" id="MG6-i3-iE9"/>
-                                            <constraint firstItem="cbG-bb-VdI" firstAttribute="top" secondItem="b0i-UV-8bj" secondAttribute="top" id="TaY-zp-Ycu"/>
-                                            <constraint firstAttribute="bottom" secondItem="cbG-bb-VdI" secondAttribute="bottom" constant="15" id="pBk-sn-hpS"/>
-                                            <constraint firstAttribute="trailing" secondItem="cbG-bb-VdI" secondAttribute="trailing" constant="15" id="vIj-o3-Vog"/>
+                                            <constraint firstItem="fU2-nP-Jad" firstAttribute="leading" secondItem="b0i-UV-8bj" secondAttribute="leading" constant="20" id="uDC-oj-ybD"/>
+                                            <constraint firstItem="fU2-nP-Jad" firstAttribute="top" secondItem="b0i-UV-8bj" secondAttribute="top" id="uNN-rp-RSp"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -94,6 +83,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="yyI-H9-JuL"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="addQuestionButton" destination="fU2-nP-Jad" id="WZH-iA-PAx"/>
                         <outlet property="questionsTableView" destination="x5A-Tb-DlL" id="oMe-LD-eLJ"/>
                     </connections>
                 </viewController>
@@ -104,7 +94,6 @@
         <!--Adicionar Pergunta-->
         <scene sceneID="lvB-zY-ui8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hFZ-iU-XiT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="G4p-Kz-HEw" customClass="AddQuestionViewController" customModule="SnowManChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1nM-fz-a08" customClass="AddQuestionView" customModule="SnowManChallenge" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -369,12 +358,12 @@
                         <outlet property="scrollView" destination="VdM-lp-1ye" id="hl5-Zn-XIx"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hFZ-iU-XiT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="779.71014492753625" y="133.92857142857142"/>
         </scene>
     </scenes>
     <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

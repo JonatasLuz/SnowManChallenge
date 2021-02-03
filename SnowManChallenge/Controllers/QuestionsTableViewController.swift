@@ -9,7 +9,9 @@ import UIKit
 import CoreData
 
 class QuestionsTableViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
-
+   
+    
+    @IBOutlet weak var addQuestionButton: UIButton!
     @IBOutlet weak var questionsTableView: UITableView!
     var didtap: Bool = false
     var currentRow = -1
@@ -22,13 +24,12 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         questionsTableView.delegate = self
         questionsTableView.dataSource = self
         super.viewDidLoad()
+        addQuestionButton.backgroundColor = .goldenYellow()
+        addQuestionButton.tintColor = .darkBlue()
+        addQuestionButton.layer.cornerRadius = 10
         
+        questionsTableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "reuseIdentifier")
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,11 +61,8 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
 
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! QuestionTableViewCell
-        
-        // Configure the cell...
         cell.questionLabel.text = questions[indexPath.row].question
         cell.answerLabel.text = questions[indexPath.row].answer
-        cell.selectionStyle = .none
         return cell
     }
     
@@ -81,23 +79,26 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         tableView.endUpdates()
     }
     
+    
+    
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return indexPath
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         if colapse == true && indexPath.row == currentRow {
             count = count + 1
             if count == 2 {
                 colapse = false
                 lastTapped = -1
             }
-            return UITableView.automaticDimension
+            return 90
         }
         if indexPath.row == currentRow {
-            return UITableView.automaticDimension + 150
+            return UITableView.automaticDimension
         }
-        return UITableView.automaticDimension
+        return 90
     }
 
     /*
