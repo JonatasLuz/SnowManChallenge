@@ -24,6 +24,11 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
     
     var questions: [Question] = []
     override func viewDidLoad() {
+        let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.search, target: self, action:#selector(self.setSearchBar))
+        navigationItem.rightBarButtonItem = searchButton
+        
+        let searchBar = UISearchBar()
+        searchBar.sizeToFit()
         navigationController?.navigationBar.barTintColor = UIColor.darkBlue()
         navigationController?.navigationBar.tintColor = UIColor.white
         questionsTableView.delegate = self
@@ -140,6 +145,14 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         successView.addSubview(checkMarkSuccess)
     }
     
+    @objc func setSearchBar(){
+        let searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        searchBar.searchTextField.leftView?.tintColor = .white
+        searchBar.barTintColor = .white
+        searchBar.searchTextField.textColor = .white
+        navigationItem.titleView = searchBar
+    }
 }
 
 extension Notification.Name {

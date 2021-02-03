@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82E-0E-1RZ">
-                        <rect key="frame" x="20" y="10" width="293" height="225"/>
+                        <rect key="frame" x="20" y="0.0" width="293" height="240"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ND-3c-ZZ1">
                                 <rect key="frame" x="10" y="10" width="283" height="70"/>
@@ -53,10 +53,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBw-VM-Vzm">
-                                <rect key="frame" x="10" y="80" width="283" height="135"/>
+                                <rect key="frame" x="10" y="80" width="283" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53h-ym-Gg3">
-                                        <rect key="frame" x="0.0" y="0.0" width="283" height="135"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="283" height="150"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -85,9 +85,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="82E-0E-1RZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="7Pt-md-TXZ"/>
-                    <constraint firstAttribute="bottom" secondItem="82E-0E-1RZ" secondAttribute="bottom" constant="10" id="clR-OO-ZTc"/>
+                    <constraint firstAttribute="bottom" secondItem="82E-0E-1RZ" secondAttribute="bottom" constant="5" id="clR-OO-ZTc"/>
                     <constraint firstAttribute="trailing" secondItem="82E-0E-1RZ" secondAttribute="trailing" constant="20" id="rWS-or-x39"/>
-                    <constraint firstItem="82E-0E-1RZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="wGc-C2-9ds"/>
+                    <constraint firstItem="82E-0E-1RZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wGc-C2-9ds"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
