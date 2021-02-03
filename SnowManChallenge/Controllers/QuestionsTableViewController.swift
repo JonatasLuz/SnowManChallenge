@@ -87,7 +87,7 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
+        //TODO: Refactor the way the tableview calculates height for each row
         if colapse == true && indexPath.row == currentRow {
             count = count + 1
             if count == 2 {

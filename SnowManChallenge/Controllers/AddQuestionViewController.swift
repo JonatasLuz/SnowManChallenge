@@ -38,7 +38,9 @@ class AddQuestionViewController: UIViewController {
         unsubscribeKeyboardNotification()
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
+    
+    // MARK: Private Functions
+    @objc private func keyboardWillShow(notification: NSNotification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height , right: 0.0)
         scrollView.contentInset = contentInsets
@@ -46,13 +48,75 @@ class AddQuestionViewController: UIViewController {
         
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
+    @objc private func keyboardWillHide(notification: NSNotification) {
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
     
-    // MARK: Private Functions
+    @IBAction private func greenButtonAction(_ sender: UIButton) {
+        if lastTappedButton != sender {
+            pickedColor = "lightGreen"
+            changeCheckmark(button: sender)
+        }
+    }
+    
+    @IBAction private func pinkButtonAction(_ sender: UIButton) {
+        if lastTappedButton != sender {
+            pickedColor = "lightPink"
+            changeCheckmark(button: sender)
+        }
+    }
+    @IBAction private func bluebuttonAction(_ sender: UIButton) {
+        if lastTappedButton != sender {
+            pickedColor = "dakrBlue"
+            changeCheckmark(button: sender)
+        }
+    }
+    
+    @IBAction private func yellowButtonAction(_ sender: UIButton) {
+        if lastTappedButton != sender {
+            pickedColor = "goldenYellow"
+            changeCheckmark(button: sender)
+        }
+    }
+    @IBAction private func addQuestionAction(_ sender: UIButton) {
+        guard let questionText = questionTextField.text else {
+            return
+        }
+        if questionText.isEmpty || answerTextView.text.isEmpty || pickedColor == nil {
+            //TODO: Add an alert when the user hasnt picked a color or wrote the question/answer
+        } else {
+            newQuestion.setValue(questionTextField.text, forKeyPath: "question")
+            newQuestion.setValue(answerTextView.text, forKeyPath: "answer")
+            newQuestion.setValue(pickedColor, forKey: "colorName")
+            do {
+                try context.save()
+            } catch {
+                print("Could not save. \(error))")
+            }
+            NotificationCenter.default.post(name: .addedQuestion, object: nil)
+            animatePopVC()
+            self.navigationController?.popViewController(animated: false)
+        }
+    }
+    
+    private func animatePopVC() {
+        let popAnimation = CATransition()
+        popAnimation.duration = 1
+        popAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        popAnimation.type = CATransitionType.moveIn
+        popAnimation.subtype = CATransitionSubtype.fromTop
+        self.navigationController?.view.layer.add(popAnimation, forKey: nil)
+    }
+    
+    private func changeCheckmark(button: UIButton) {
+        addQuestionView.setCheckmark(button: button)
+        if lastTappedButton != nil {
+            lastTappedButton.setImage(nil, for: .normal)
+        }
+        lastTappedButton = button
+    }
     
     private func subcribeKeyboardNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -63,72 +127,4 @@ class AddQuestionViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-
-    @IBAction func greenButtonAction(_ sender: UIButton) {
-        if lastTappedButton != sender {
-            pickedColor = "lightGreen"
-            changeCheckmark(button: sender)
-        }
-    }
-    
-    @IBAction func pinkButtonAction(_ sender: UIButton) {
-        if lastTappedButton != sender {
-            pickedColor = "lightPink"
-            changeCheckmark(button: sender)
-        }
-    }
-    @IBAction func bluebuttonAction(_ sender: UIButton) {
-        if lastTappedButton != sender {
-            pickedColor = "dakrBlue"
-            changeCheckmark(button: sender)
-        }
-    }
-    
-    @IBAction func yellowButtonAction(_ sender: UIButton) {
-        if lastTappedButton != sender {
-            pickedColor = "goldenYellow"
-            changeCheckmark(button: sender)
-        }
-        
-        
-    }
-    @IBAction func addQuestionAction(_ sender: UIButton) {
-        newQuestion.setValue(questionTextField.text, forKeyPath: "question")
-        newQuestion.setValue(answerTextView.text, forKeyPath: "answer")
-        newQuestion.setValue(pickedColor, forKey: "colorName")
-        do {
-            try context.save()
-        } catch {
-            print("Could not save. \(error))")
-        }
-        let popAnimation = CATransition()
-        popAnimation.duration = 1
-        popAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        popAnimation.type = CATransitionType.moveIn
-        popAnimation.subtype = CATransitionSubtype.fromTop
-        self.navigationController?.view.layer.add(popAnimation, forKey: nil)
-        NotificationCenter.default.post(name: .addedQuestion, object: nil)
-        self.navigationController?.popViewController(animated: false)
-    }
-    
-    func changeCheckmark(button: UIButton) {
-        addQuestionView.setCheckmark(button: button)
-        if lastTappedButton != nil {
-            lastTappedButton.setImage(nil, for: .normal)
-        }
-        lastTappedButton = button
-    }
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
