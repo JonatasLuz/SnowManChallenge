@@ -27,11 +27,6 @@ class AddQuestionViewController: UIViewController {
         }
         
         context = appDelegate.persistentContainer.viewContext
-        guard let entity = NSEntityDescription.entity(forEntityName: "Question", in: context) else {
-            return
-        }
-        newQuestion = NSManagedObject(entity: entity, insertInto: context)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -87,6 +82,10 @@ class AddQuestionViewController: UIViewController {
         if questionText.isEmpty || answerTextView.text.isEmpty || pickedColor == nil {
             //TODO: Add an alert when the user hasnt picked a color or wrote the question/answer
         } else {
+            guard let entity = NSEntityDescription.entity(forEntityName: "Question", in: context) else {
+                return
+            }
+            newQuestion = NSManagedObject(entity: entity, insertInto: context)
             newQuestion.setValue(questionTextField.text, forKeyPath: "question")
             newQuestion.setValue(answerTextView.text, forKeyPath: "answer")
             newQuestion.setValue(pickedColor, forKey: "colorName")

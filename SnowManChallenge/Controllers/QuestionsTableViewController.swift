@@ -24,6 +24,8 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
     
     var questions: [Question] = []
     override func viewDidLoad() {
+        navigationController?.navigationBar.barTintColor = UIColor.darkBlue()
+        navigationController?.navigationBar.tintColor = UIColor.white
         questionsTableView.delegate = self
         questionsTableView.dataSource = self
         super.viewDidLoad()
