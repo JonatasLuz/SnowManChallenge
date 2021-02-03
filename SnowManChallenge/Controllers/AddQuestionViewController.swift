@@ -96,18 +96,18 @@ class AddQuestionViewController: UIViewController {
         newQuestion.setValue(questionTextField.text, forKeyPath: "question")
         newQuestion.setValue(answerTextView.text, forKeyPath: "answer")
         newQuestion.setValue(pickedColor, forKey: "colorName")
-        
         do {
             try context.save()
         } catch {
             print("Could not save. \(error))")
         }
-        let transition = CATransition()
-        transition.duration = 1
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.moveIn
-        transition.subtype = CATransitionSubtype.fromTop
-        self.navigationController?.view.layer.add(transition, forKey: nil)
+        let popAnimation = CATransition()
+        popAnimation.duration = 1
+        popAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        popAnimation.type = CATransitionType.moveIn
+        popAnimation.subtype = CATransitionSubtype.fromTop
+        self.navigationController?.view.layer.add(popAnimation, forKey: nil)
+        NotificationCenter.default.post(name: .addedQuestion, object: nil)
         self.navigationController?.popViewController(animated: false)
     }
     

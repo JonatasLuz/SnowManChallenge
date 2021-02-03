@@ -13,6 +13,9 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
     
     @IBOutlet weak var addQuestionButton: UIButton!
     @IBOutlet weak var questionsTableView: UITableView!
+    
+    private var successView: UIView!
+    private var tap: UITapGestureRecognizer!
     var didtap: Bool = false
     var currentRow = -1
     var lastTapped = -1
@@ -26,7 +29,9 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         super.viewDidLoad()
         addQuestionButton.backgroundColor = .goldenYellow()
         addQuestionButton.tintColor = .darkBlue()
+        addQuestionButton.layer.cornerRadius = 10
         questionsTableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "reuseIdentifier")
+        NotificationCenter.default.addObserver(self, selector: #selector(addSuccesView), name: Notification.Name("addedQuestion"), object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +47,6 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         }
         questionsTableView.reloadData()
     }
-    
     
     // MARK: - Table view data source
 
@@ -97,50 +101,40 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         }
         return 90
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    @objc func addSuccesView() {
+        configuresuccessView()
+        tap = UITapGestureRecognizer(target: self, action: #selector(dismissSuccessView))
+        self.view.addGestureRecognizer(tap)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    @objc func dismissSuccessView(view: UIView){
+        successView.removeFromSuperview()
+        self.view.removeGestureRecognizer(tap)
+        
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func configuresuccessView() {
+        successView = UIView(frame: CGRect(x: 0, y: self.view.frame.height - 50, width: self.view.frame.width, height: 50))
+        successView.backgroundColor = .lightGreen()
+        self.view.addSubview(successView)
+        let successLabel = UILabel()
+        successView.addSubview(successLabel)
+        successLabel.text = "Pergunta adicionada com sucesso"
+        successLabel.font = UIFont(name: "Helvetica-Bold", size: 14)
+        successLabel.frame.size.height = 50
+        successLabel.textColor = .systemGray6
+        successLabel.frame.size.width = 250
+        successLabel.center = CGPoint(x: successView.frame.width/2, y: successView.frame.height/2)
+        successLabel.textAlignment = .center
+        let checkMarkSuccess = UIImageView(frame: CGRect(x: 20, y: 10, width: 30, height: 30))
+        checkMarkSuccess.image = UIImage(systemName: "checkmark.circle.fill")
+        checkMarkSuccess.tintColor = .systemGray6
+        successView.addSubview(checkMarkSuccess)
     }
-    */
+    
+}
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+extension Notification.Name {
+    static let addedQuestion = Notification.Name("addedQuestion")
 }
