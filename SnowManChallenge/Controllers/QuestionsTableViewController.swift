@@ -8,9 +8,7 @@
 import UIKit
 import CoreData
 
-class QuestionsTableViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
-   
-    
+class QuestionsTableViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var addQuestionButton: UIButton!
     @IBOutlet weak var questionsTableView: UITableView!
     
@@ -21,14 +19,20 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
     var lastTapped = -1
     var colapse = false
     var count = 0
+    var searchBar: UISearchBar!
+    var isFiltering: Bool {
+        return !isSearchBarEmpty
+    }
+    var isSearchBarEmpty: Bool {
+      return searchBar.text?.isEmpty ?? true
+    }
     
     var questions: [Question] = []
+    var filteredQuestions: [Question] = []
     override func viewDidLoad() {
+        searchBar = UISearchBar()
         let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.search, target: self, action:#selector(self.setSearchBar))
         navigationItem.rightBarButtonItem = searchButton
-        
-        let searchBar = UISearchBar()
-        searchBar.sizeToFit()
         navigationController?.navigationBar.barTintColor = UIColor.darkBlue()
         navigationController?.navigationBar.tintColor = UIColor.white
         questionsTableView.delegate = self
@@ -64,14 +68,26 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
 
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return questions.count
+        if isFiltering {
+            return filteredQuestions.count
+        } else {
+            return questions.count
+        }
     }
 
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! QuestionTableViewCell
         cell.questionLabel.text = questions[indexPath.row].question
         cell.answerLabel.text = questions[indexPath.row].answer
-        guard let colorName =  questions[indexPath.row].colorName else {
+        var question: Question!
+        if isFiltering {
+            question = filteredQuestions[indexPath.row]
+        } else {
+            question = questions[indexPath.row]
+        }
+        cell.questionLabel.text = question.question
+        cell.answerLabel.text = question.answer
+        guard let colorName =  question.colorName else {
             return cell
         }
         let cellColor =  UIColor.resolveColorName(colorName: colorName)
@@ -145,14 +161,22 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         successView.addSubview(checkMarkSuccess)
     }
     
-    @objc func setSearchBar(){
-        let searchBar = UISearchBar()
+    @objc func setSearchBar() {
+        searchBar.delegate = self
         searchBar.sizeToFit()
         searchBar.searchTextField.leftView?.tintColor = .white
         searchBar.barTintColor = .white
         searchBar.searchTextField.textColor = .white
         navigationItem.titleView = searchBar
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredQuestions = searchText.isEmpty ? questions : questions.filter { (item: Question) -> Bool in
+            return item.question!.lowercased().contains(searchText.lowercased())
+          }
+
+          questionsTableView.reloadData()
+      }
 }
 
 extension Notification.Name {
