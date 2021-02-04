@@ -26,12 +26,17 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
     var isSearchBarEmpty: Bool {
       return searchBar.text?.isEmpty ?? true
     }
-    
+    var searchButton: UIBarButtonItem!
+    var cancelSearchButton: UIBarButtonItem!
     var questions: [Question] = []
     var filteredQuestions: [Question] = []
+        
     override func viewDidLoad() {
         searchBar = UISearchBar()
-        let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.search, target: self, action:#selector(self.setSearchBar))
+        searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.search, target: self, action:#selector(self.setSearchBar))
+        cancelSearchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.stop, target: self, action:#selector(self.cancelSearchBar))
+        
+        initiateSearchBar()
         navigationItem.rightBarButtonItem = searchButton
         navigationController?.navigationBar.barTintColor = UIColor.darkBlue()
         navigationController?.navigationBar.tintColor = UIColor.white
@@ -136,7 +141,7 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         self.view.addGestureRecognizer(tap)
     }
     
-    @objc func dismissSuccessView(view: UIView){
+    @objc func dismissSuccessView(view: UIView) {
         successView.removeFromSuperview()
         self.view.removeGestureRecognizer(tap)
         
@@ -162,19 +167,29 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
     }
     
     @objc func setSearchBar() {
+        navigationItem.rightBarButtonItem = cancelSearchButton
+        navigationItem.titleView = searchBar
+    }
+    @objc func cancelSearchBar() {
+        searchBar.endEditing(true)
+        navigationItem.rightBarButtonItem = searchButton
+        navigationItem.titleView = nil
+        searchBar.text = nil
+    }
+    
+    func initiateSearchBar() {
+        self.searchBar.showsCancelButton = false
         searchBar.delegate = self
         searchBar.sizeToFit()
         searchBar.searchTextField.leftView?.tintColor = .white
         searchBar.barTintColor = .white
         searchBar.searchTextField.textColor = .white
-        navigationItem.titleView = searchBar
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredQuestions = searchText.isEmpty ? questions : questions.filter { (item: Question) -> Bool in
             return item.question!.lowercased().contains(searchText.lowercased())
           }
-
           questionsTableView.reloadData()
       }
 }

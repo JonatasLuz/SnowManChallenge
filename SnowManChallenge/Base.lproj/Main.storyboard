@@ -207,6 +207,7 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7TK-XI-NX9">
                                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                        <state key="normal" image="x"/>
                                                                         <connections>
                                                                             <action selector="greenButtonAction:" destination="G4p-Kz-HEw" eventType="touchUpInside" id="LBL-dr-dyr"/>
                                                                         </connections>
@@ -368,6 +369,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="x" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
