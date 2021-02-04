@@ -24,7 +24,7 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         return !isSearchBarEmpty
     }
     var isSearchBarEmpty: Bool {
-      return searchBar.text?.isEmpty ?? true
+        return searchBar.text?.isEmpty ?? true
     }
     var searchButton: UIBarButtonItem!
     var cancelSearchButton: UIBarButtonItem!
@@ -66,21 +66,21 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
     
     // MARK: - Table view data source
 
-     func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if isFiltering {
             return filteredQuestions.count
         } else {
             return questions.count
         }
-    }
-
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! QuestionTableViewCell
         cell.questionLabel.text = questions[indexPath.row].question
         cell.answerLabel.text = questions[indexPath.row].answer
@@ -113,21 +113,18 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         tableView.endUpdates()
     }
     
-    
-    
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return indexPath
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //TODO: Refactor the way the tableview calculates height for each row
         if colapse == true && indexPath.row == currentRow {
             count = count + 1
             if count == 2 {
                 colapse = false
                 lastTapped = -1
+                return 90
             }
-            return 90
         }
         if indexPath.row == currentRow {
             return UITableView.automaticDimension
@@ -136,7 +133,7 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
     }
     
     @objc func addSuccesView() {
-        configuresuccessView()
+        configureSuccessView()
         tap = UITapGestureRecognizer(target: self, action: #selector(dismissSuccessView))
         self.view.addGestureRecognizer(tap)
     }
@@ -144,10 +141,21 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
     @objc func dismissSuccessView(view: UIView) {
         successView.removeFromSuperview()
         self.view.removeGestureRecognizer(tap)
-        
     }
     
-    func configuresuccessView() {
+    @objc func setSearchBar() {
+        navigationItem.rightBarButtonItem = cancelSearchButton
+        navigationItem.titleView = searchBar
+    }
+    
+    @objc func cancelSearchBar() {
+        searchBar.endEditing(true)
+        navigationItem.rightBarButtonItem = searchButton
+        navigationItem.titleView = nil
+        searchBar.text = nil
+    }
+    
+    func configureSuccessView() {
         successView = UIView(frame: CGRect(x: 0, y: self.view.frame.height - 50, width: self.view.frame.width, height: 50))
         successView.backgroundColor = .lightGreen()
         self.view.addSubview(successView)
@@ -166,16 +174,6 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         successView.addSubview(checkMarkSuccess)
     }
     
-    @objc func setSearchBar() {
-        navigationItem.rightBarButtonItem = cancelSearchButton
-        navigationItem.titleView = searchBar
-    }
-    @objc func cancelSearchBar() {
-        searchBar.endEditing(true)
-        navigationItem.rightBarButtonItem = searchButton
-        navigationItem.titleView = nil
-        searchBar.text = nil
-    }
     
     func initiateSearchBar() {
         self.searchBar.showsCancelButton = false
@@ -189,9 +187,10 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredQuestions = searchText.isEmpty ? questions : questions.filter { (item: Question) -> Bool in
             return item.question!.lowercased().contains(searchText.lowercased())
-          }
-          questionsTableView.reloadData()
-      }
+        }
+            questionsTableView.reloadData()
+    }
+    
 }
 
 extension Notification.Name {
