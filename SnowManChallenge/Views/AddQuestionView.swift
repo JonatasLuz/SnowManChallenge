@@ -9,6 +9,7 @@ import UIKit
 
 class AddQuestionView: UIView {
     
+    // MARK: Variables
     @IBOutlet weak var addQuestionView: UIView!
     @IBOutlet weak var addAnwerView: UIView!
     @IBOutlet weak var yellowPickerVIew: UIView!
@@ -21,7 +22,11 @@ class AddQuestionView: UIView {
     @IBOutlet weak var blueButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     
+    // MARK: Private Variables
+    
     private var newQuestion: Question!
+    
+    // MARK: Overrides
     
     override func awakeFromNib() {
         configureViewBorderAppearance(view: addQuestionView)
@@ -30,10 +35,10 @@ class AddQuestionView: UIView {
         configureColorViewAppearance(view: greenPickerView, color: .lightGreen())
         configureColorViewAppearance(view: pinkPickerView, color: .lightPink())
         configureColorViewAppearance(view: bluePickerView, color: .darkBlue())
-        addButton.backgroundColor = .goldenYellow()
-        addButton.tintColor = .darkBlue()
-        addButton.layer.cornerRadius = 10
+        configureButtonAppearance(button: addButton)
     }
+    
+    // MARK: Private Functions
     
     private func configureColorViewAppearance(view: UIView, color: UIColor) {
         view.layer.borderWidth = 1
@@ -55,15 +60,24 @@ class AddQuestionView: UIView {
         view.layer.cornerRadius = 10
     }
     
+    private func removeCheckMark(button: UIButton) {
+        button.setImage(nil, for: .normal)
+    }
+    
+    private func configureButtonAppearance(button: UIButton) {
+        button.backgroundColor = .goldenYellow()
+        button.tintColor = .darkBlue()
+        button.layer.cornerRadius = 10
+        
+    }
+    
+    // MARK: Public Functions
+    
     func setCheckmark(button: UIButton) {
         let checkMarkImage = UIImage(systemName: "checkmark")
         button.tintColor = .white
         button.setImage(checkMarkImage, for: .normal)
         button.contentMode = .center
-    }
-    
-    func removeCheckMark(button: UIButton) {
-        button.setImage(nil, for: .normal)
     }
     
 }

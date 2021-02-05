@@ -8,10 +8,16 @@
 import UIKit
 
 class QuestionTableViewCell: UITableViewCell {
+    
+    // MARK: Variables
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var borderView: UIView!
+    
+    // MARK: Overrides
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         questionLabel.adjustsFontSizeToFitWidth = true

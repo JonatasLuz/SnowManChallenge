@@ -10,15 +10,22 @@ import CoreData
 
 class AddQuestionViewController: UIViewController {
 
+    // MARK: Variables
     
     @IBOutlet var addQuestionView: AddQuestionView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var answerTextView: UITextView!
+    
+    // MARK: Private Variables
+    
     private var lastTappedButton: UIButton!
     private var newQuestion: NSManagedObject!
     private var pickedColor: String!
     private var context: NSManagedObjectContext!
+    
+    // MARK: Overrides
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         subcribeKeyboardNotification()
@@ -33,8 +40,8 @@ class AddQuestionViewController: UIViewController {
         unsubscribeKeyboardNotification()
     }
     
-    
     // MARK: Private Functions
+    
     @objc private func keyboardWillShow(notification: NSNotification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height , right: 0.0)

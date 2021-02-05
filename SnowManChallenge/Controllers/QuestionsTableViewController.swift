@@ -9,28 +9,34 @@ import UIKit
 import CoreData
 
 class QuestionsTableViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+    // MARK: Variables
+    
     @IBOutlet weak var addQuestionButton: UIButton!
     @IBOutlet weak var questionsTableView: UITableView!
     
+    // MARK: Private Variables
+    
     private var successView: UIView!
     private var tap: UITapGestureRecognizer!
-    var didtap: Bool = false
-    var currentRow = -1
-    var lastTapped = -1
-    var colapse = false
-    var count = 0
-    var searchBar: UISearchBar!
-    var isFiltering: Bool {
+    private var didtap: Bool = false
+    private var currentRow = -1
+    private var lastTapped = -1
+    private var colapse = false
+    private var count = 0
+    private var searchBar: UISearchBar!
+    private var isFiltering: Bool {
         return !isSearchBarEmpty
     }
-    var isSearchBarEmpty: Bool {
+    private var isSearchBarEmpty: Bool {
         return searchBar.text?.isEmpty ?? true
     }
-    var searchButton: UIBarButtonItem!
-    var cancelSearchButton: UIBarButtonItem!
-    var questions: [Question] = []
-    var filteredQuestions: [Question] = []
-        
+    private var searchButton: UIBarButtonItem!
+    private var cancelSearchButton: UIBarButtonItem!
+    private var questions: [Question] = []
+    private var filteredQuestions: [Question] = []
+    
+    // MARK: Overrides
+    
     override func viewDidLoad() {
         searchBar = UISearchBar()
         searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.search, target: self, action:#selector(self.setSearchBar))
@@ -65,7 +71,7 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
     }
     
     // MARK: - Table view data source
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -132,6 +138,8 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         return 85
     }
     
+    // MARK: - Functions
+    
     @objc func addSuccesView() {
         configureSuccessView()
         tap = UITapGestureRecognizer(target: self, action: #selector(dismissSuccessView))
@@ -155,7 +163,16 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         searchBar.text = nil
     }
     
-    func configureSuccessView() {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredQuestions = searchText.isEmpty ? questions : questions.filter { (item: Question) -> Bool in
+            return item.question!.lowercased().contains(searchText.lowercased())
+        }
+            questionsTableView.reloadData()
+    }
+    
+    // MARK: - Private Functions
+    
+    private func configureSuccessView() {
         successView = UIView(frame: CGRect(x: 0, y: self.view.frame.height - 50, width: self.view.frame.width, height: 50))
         successView.backgroundColor = .lightGreen()
         self.view.addSubview(successView)
@@ -174,21 +191,13 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         successView.addSubview(checkMarkSuccess)
     }
     
-    
-    func initiateSearchBar() {
+    private func initiateSearchBar() {
         self.searchBar.showsCancelButton = false
         searchBar.delegate = self
         searchBar.sizeToFit()
         searchBar.searchTextField.leftView?.tintColor = .white
         searchBar.barTintColor = .white
         searchBar.searchTextField.textColor = .white
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredQuestions = searchText.isEmpty ? questions : questions.filter { (item: Question) -> Bool in
-            return item.question!.lowercased().contains(searchText.lowercased())
-        }
-            questionsTableView.reloadData()
     }
     
 }
