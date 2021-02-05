@@ -87,7 +87,9 @@ class AddQuestionViewController: UIViewController {
             return
         }
         if questionText.isEmpty || answerTextView.text.isEmpty || pickedColor == nil {
-            //TODO: Add an alert when the user hasnt picked a color or wrote the question/answer
+            let alert = UIAlertController(title: "FAQ", message: "Por favor preencha todos os campos", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } else {
             guard let entity = NSEntityDescription.entity(forEntityName: "Question", in: context) else {
                 return
