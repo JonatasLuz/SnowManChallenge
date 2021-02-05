@@ -303,6 +303,7 @@
                                                         <rect key="frame" x="20" y="0.0" width="374" height="55"/>
                                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                        <color key="tintColor" systemColor="systemBlueColor"/>
                                                         <state key="normal" title="Adicionar"/>
                                                         <connections>
                                                             <action selector="addQuestionAction:" destination="G4p-Kz-HEw" eventType="touchUpInside" id="u0j-Q7-g99"/>

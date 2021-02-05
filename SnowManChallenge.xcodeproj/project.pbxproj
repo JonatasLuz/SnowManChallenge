@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B4049CD225C58FDB000ED481 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4049CD025C58FDB000ED481 /* QuestionTableViewCell.swift */; };
 		B4049CD325C58FDB000ED481 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4049CD125C58FDB000ED481 /* QuestionTableViewCell.xib */; };
+		B417159D25CD723D00360D1E /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417159C25CD723D00360D1E /* NotificationExtension.swift */; };
 		B42C068B25C8A0B900CD0573 /* AddQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42C068A25C8A0B900CD0573 /* AddQuestionView.swift */; };
 		B42F6DC225C46BF0004AE7D2 /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42F6DC125C46BF0004AE7D2 /* QuestionModel.swift */; };
 		B443935325C83DFA0018E332 /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443935225C83DFA0018E332 /* AddQuestionViewController.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		B4049CD025C58FDB000ED481 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		B4049CD125C58FDB000ED481 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
+		B417159C25CD723D00360D1E /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		B42C068A25C8A0B900CD0573 /* AddQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionView.swift; sourceTree = "<group>"; };
 		B42F6DC125C46BF0004AE7D2 /* QuestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		B443935225C83DFA0018E332 /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				B4C710B425C35F0E006345C4 /* Questions.json */,
 				B4C710B025C342DF006345C4 /* UIColorExtension.swift */,
+				B417159C25CD723D00360D1E /* NotificationExtension.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B417159D25CD723D00360D1E /* NotificationExtension.swift in Sources */,
 				B4B5FAAC25C0BBD300B35E7F /* AppDelegate.swift in Sources */,
 				B4B5FAAE25C0BBD300B35E7F /* SceneDelegate.swift in Sources */,
 				B42C068B25C8A0B900CD0573 /* AddQuestionView.swift in Sources */,

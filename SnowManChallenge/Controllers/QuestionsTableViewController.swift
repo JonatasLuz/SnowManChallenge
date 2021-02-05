@@ -192,7 +192,3 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
     }
     
 }
-
-extension Notification.Name {
-    static let addedQuestion = Notification.Name("addedQuestion")
-}

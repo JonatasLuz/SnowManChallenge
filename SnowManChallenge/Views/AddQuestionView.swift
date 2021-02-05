@@ -31,10 +31,11 @@ class AddQuestionView: UIView {
         configureColorViewAppearance(view: pinkPickerView, color: .lightPink())
         configureColorViewAppearance(view: bluePickerView, color: .darkBlue())
         addButton.backgroundColor = .goldenYellow()
+        addButton.tintColor = .darkBlue()
         addButton.layer.cornerRadius = 10
     }
     
-    private func configureColorViewAppearance(view: UIView, color: UIColor){
+    private func configureColorViewAppearance(view: UIView, color: UIColor) {
         view.layer.borderWidth = 1
         view.backgroundColor = color
         view.backgroundColor = color
