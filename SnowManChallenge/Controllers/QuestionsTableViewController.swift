@@ -96,7 +96,7 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
             return cell
         }
         let cellColor =  UIColor.resolveColorName(colorName: colorName)
-        cell.containerView.layer.borderColor = cellColor.cgColor
+        cell.containerView.backgroundColor = cellColor
         return cell
     }
     
@@ -123,13 +123,13 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
             if count == 2 {
                 colapse = false
                 lastTapped = -1
-                return 90
+                return 85
             }
         }
         if indexPath.row == currentRow {
             return UITableView.automaticDimension
         }
-        return 90
+        return 85
     }
     
     @objc func addSuccesView() {
