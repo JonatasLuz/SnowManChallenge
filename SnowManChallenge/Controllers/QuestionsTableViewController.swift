@@ -159,6 +159,7 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         navigationItem.rightBarButtonItem = searchButton
         navigationItem.titleView = nil
         searchBar.text = nil
+        questionsTableView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -196,6 +197,7 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         searchBar.searchTextField.leftView?.tintColor = .white
         searchBar.barTintColor = .white
         searchBar.searchTextField.textColor = .white
+        searchBar.searchTextField.placeholder = "Procurar perguntas"
     }
     
 }
