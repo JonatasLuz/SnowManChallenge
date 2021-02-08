@@ -41,7 +41,7 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         searchBar = UISearchBar()
         searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.search, target: self, action:#selector(self.setSearchBar))
         cancelSearchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.stop, target: self, action:#selector(self.cancelSearchBar))
-        
+        configureButtonAppearance(button: addQuestionButton)
         initiateSearchBar()
         navigationItem.rightBarButtonItem = searchButton
         navigationController?.navigationBar.barTintColor = UIColor.darkBlue()
@@ -49,9 +49,6 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         questionsTableView.delegate = self
         questionsTableView.dataSource = self
         super.viewDidLoad()
-        addQuestionButton.backgroundColor = .goldenYellow()
-        addQuestionButton.tintColor = .darkBlue()
-        addQuestionButton.layer.cornerRadius = 10
         questionsTableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "reuseIdentifier")
         NotificationCenter.default.addObserver(self, selector: #selector(addSuccesView), name: Notification.Name("addedQuestion"), object: nil)
     }
@@ -198,6 +195,17 @@ class QuestionsTableViewController: UIViewController , UITableViewDataSource, UI
         searchBar.barTintColor = .white
         searchBar.searchTextField.textColor = .white
         searchBar.searchTextField.placeholder = "Procurar perguntas"
+    }
+    
+    private func configureButtonAppearance(button: UIButton) {
+        button.backgroundColor = .goldenYellow()
+        button.tintColor = .darkBlue()
+        let plusIcon = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 16, weight: .bold))
+        button.setImage(plusIcon, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.semanticContentAttribute = .forceRightToLeft
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 0)
+        button.layer.cornerRadius = 10
     }
     
 }
